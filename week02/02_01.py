@@ -14,16 +14,26 @@
 # 1. 숫자입력후 배열생성
 # 2. 입력받은 숫자의 평균값 산출
 # 3. 평균값을 기준으로
+
+#조건입력
 RepeatNumber = int(input('RepeatNumber? '))
 print(RepeatNumber)
 
 i = 0
+sum = 0
 InputArray = []
 
+#조건입력
 while i < RepeatNumber:
     number = int(input('number? '))
     i = i + 1
     InputArray.append(number)
+
+j = 0
+sum = 0
+for j in range(InputArray):
+    sum = sum + j
+print(sum)
 
 
 
