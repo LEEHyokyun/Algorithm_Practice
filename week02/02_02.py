@@ -11,16 +11,17 @@
 
 
 #조건입력
-RepeatNumber = int(input('RepeatNumber? '))
-print(RepeatNumber)
+Size_Array = int(input('RepeatNumber? '))
+print(Size_Array)
 
 i = 0
 j = 0
-sum = 0
+k = 0
+
 InputArray = []
 
 #반복문 작성
-while i < RepeatNumber:
+while i < Size_Array:
     number = int(input('number? '))
     if number == 0:
         # 0을 입력했을때 바로바로 숫자제거
@@ -37,3 +38,7 @@ while i < RepeatNumber:
 print(InputArray)
 
 #최종결과 도출
+sum = 0
+for k in range(InputArray):
+    sum = sum + int(InputArray[k])
+print(sum)
