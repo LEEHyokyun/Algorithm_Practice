@@ -15,10 +15,10 @@
 
 # 먼저 그래프부터 만들기
 graph = {
-    1: [2, 4, 3],
+    1: [3, 4, 2],
     2: [1, 4],
     3: [1, 4],
-    4: [1, 3, 2]
+    4: [1, 2, 3]
 }
 
 
@@ -28,20 +28,28 @@ graph = {
 # stack 이용
 
 def dfs(graph, root_node):
+    #시작노드
     stack = [root_node]
     result = []
 
     while stack:
-
+        #이후 반복문을 돌리기 위한 요소 : 부모노드
         parent_node = stack.pop()
-        children = graph[parent_node]
-        children_node = children.map()
 
-        if children_node not in result:
+        #방문한 시점에서 결과리스트에 추가
+        #자식노드는 stack에 추가
+
+        if parent_node not in result:
             result.append(parent_node)
-            stack.extend(graph[parent_node])
+            children = graph[parent_node]
+
+            stack.extend(children)
 
     return result
+
+def bfs(graph, root_node):
+    
+
 
 
 print(dfs(graph, 1))
