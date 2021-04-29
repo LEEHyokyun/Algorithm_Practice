@@ -15,7 +15,7 @@
 
 # 먼저 그래프부터 만들기
 graph = {
-    1: [3, 4, 2],
+    1: [2, 3, 4],
     2: [1, 4],
     3: [1, 4],
     4: [1, 2, 3]
@@ -26,6 +26,7 @@ graph = {
 # 완전이진트리가 아닌 정점이나 인접노드가 여러개인 그래프 등
 # 모두 적용가능한 코드필요
 # stack 이용
+# pop, extend
 
 def dfs(graph, root_node):
     #시작노드
@@ -34,6 +35,7 @@ def dfs(graph, root_node):
 
     while stack:
         #이후 반복문을 돌리기 위한 요소 : 부모노드
+
         parent_node = stack.pop()
 
         #방문한 시점에서 결과리스트에 추가
@@ -42,14 +44,49 @@ def dfs(graph, root_node):
         if parent_node not in result:
             result.append(parent_node)
             children = graph[parent_node]
-
+            #탐색은 낮은 숫자부터 진행하기위해
+            #stack에 추가하기전에 자식노드 재배열
+            children.reverse()
+            #재배열후 stack에 추가
             stack.extend(children)
+
 
     return result
 
+# BFS
+# 완전이진트리가 아닌 정점이나 인접노드가 여러개인 그래프 등
+# 모두 적용가능한 코드필요
+# Queue 이용
+# dequeue, extend
+# dequeue = pop(0)
+
 def bfs(graph, root_node):
-    
+    #시작노드
+    queue = [root_node]
+    result = []
+
+    while queue:
+        #이후 반복문을 돌리기 위한 요소 : 부모노드
+        #bfs는 queue에서 pop
+        parent_node = queue.pop(0)
+
+        #방문한 시점에서 결과리스트에 추가
+        #자식노드는 stack에 추가
+
+        if parent_node not in result:
+            result.append(parent_node)
+            children = graph[parent_node]
+            # 탐색은 낮은 숫자부터 진행하기위해
+            # stack에 추가하기전에 자식노드 재배열
+            children.sort()
+            #재배열후 queue에 추가
+            queue.extend(children)
+
+
+    return result
+
 
 
 
 print(dfs(graph, 1))
+print(bfs(graph, 1))
