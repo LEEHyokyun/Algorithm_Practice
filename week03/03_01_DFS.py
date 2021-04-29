@@ -45,6 +45,7 @@ def dfs(graph, root_node):
             result.append(parent_node)
             children = graph[parent_node]
             #탐색은 낮은 숫자부터 진행하기위해
+            #리스트의 마지막 숫자가 가장 작아야 한다(내림차순)
             #stack에 추가하기전에 자식노드 재배열
             children.reverse()
             #재배열후 stack에 추가
@@ -77,6 +78,7 @@ def bfs(graph, root_node):
             result.append(parent_node)
             children = graph[parent_node]
             # 탐색은 낮은 숫자부터 진행하기위해
+            # 리스트의 첫번째 숫자가 가장 작아야 한다(오름차순)
             # stack에 추가하기전에 자식노드 재배열
             children.sort()
             #재배열후 queue에 추가
