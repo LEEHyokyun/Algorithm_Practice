@@ -28,10 +28,6 @@ def P(N):
     array_memoization = [0] * (N + 1)
 
     #동적계획법을 구현하는 로직
-    return D(N, array_memoization)
-
-
-def D(N, array_memoization):
     i = 0
     while i < (len(array_memoization)):
         if i == 0:
@@ -47,9 +43,10 @@ def D(N, array_memoization):
         else:
             array_memoization[i] = array_memoization[i - 5] + array_memoization[i - 1]
         i = i + 1
-    result = array_memoization[N]
-    return result
 
+    result = array_memoization[N]
+
+    return result
 
 print(P(6))
 print(P(12))
