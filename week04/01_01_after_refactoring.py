@@ -1,6 +1,3 @@
-#https://coding-all.tistory.com/2
-#https://kamang-it.tistory.com/entry/AlgorithmDynamic-Programming%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%EB%A9%94%EB%AA%A8%EC%9D%B4%EC%A0%9C%EC%9D%B4%EC%85%98memoization-%ED%83%80%EB%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98tabulation
-
 # 동적계획법
 
 # 큰 문제를 작은 문제로 나눠서 푼다 TOP DOWN
