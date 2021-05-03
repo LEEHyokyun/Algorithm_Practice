@@ -14,7 +14,39 @@
 # 기존 삼각형에서 누적되는 문제이므로, 메모이제이션으로 풀어야 효율적일것이다.
 
 # T = the number of test case
-# N = element number
+# N = index
 
+#결과저장배열을 생성하는 로직
+def get_length_triangle(T):
 
-# 규칙성을 찾은 후에 코드로 구현해보자
+    array_result = [0] * T
+
+    return array_result
+
+#변수 N을 입력받아 결과를 반환해주는 로직
+def P(N):
+    array_memoization = [0] * (N + 1)
+
+    #동적계획법을 구현하는 로직
+    i = 0
+    while i < (len(array_memoization)):
+        if i == 0:
+            array_memoization[i] = 0
+        elif i == 1:
+            array_memoization[i] = 1
+        elif i == 2:
+            array_memoization[i] = 1
+        elif i == 3:
+            array_memoization[i] = 1
+        elif i == 4:
+            array_memoization[i] = 2
+        else:
+            array_memoization[i] = array_memoization[i - 5] + array_memoization[i - 1]
+        i = i + 1
+
+    result = array_memoization[N]
+
+    return result
+
+print(P(6))
+print(P(12))
