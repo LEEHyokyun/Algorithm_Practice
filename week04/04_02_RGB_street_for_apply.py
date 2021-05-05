@@ -10,9 +10,7 @@
 
 
 each_house_value = [
- [26, 40, 83],
- [49, 60, 57],
- [13, 89, 99]
+ [26, 40, 83], [49, 60, 57], [13, 89, 99]
 ]
 
 def get_minimum_value(RGB_array, N):
@@ -23,18 +21,10 @@ def get_minimum_value(RGB_array, N):
 
 def memoization(RGB_array, N):
 
-    for j in range(3):
-
-        before_index = j
-
-        for i in range(N):
-
+    for j in range(3): # j = 0,1,2
+        for i in range(1, N):
             value = RGB_array[i][j]
-            if j == before_index:
-                value = value + min(RGB_array[i][j-1], RGB_array[i][j+1])
-            else:
-                value = value + RGB_array[i][j]
-                print(value)
+            print(value)
 
 
 
