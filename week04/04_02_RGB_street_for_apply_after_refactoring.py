@@ -8,11 +8,12 @@
 # 모든 노드에 대해 탐색은 하지 않기 때문에 BFS 및 DFS 사용불가
 # 동적계획법을 이용하여 이전 선택한 값을 누적하면서 최소값을 나열한후 구해보자.
 
-
+#각 집에 칠하는 색깔을 배열로 구현하기 위해 일반화 필요
 each_house_value = [
  [26, 40, 83], [49, 60, 57], [13, 89, 99]
 ]
 
+#색깔의개수와 집의수(N)에 따른 일반화 필요
 hash_table = {
     1:{1:{},
        2:{},
@@ -27,6 +28,7 @@ hash_table = {
        3:{}}
 }
 
+#결과저장
 result_array = []
 
 
@@ -36,11 +38,20 @@ def get_minimum_value(each_house_value, color, N):
     #첫번째집 색깔을 선택한 이후에 나올 수 있는 비용의 경우의 수를 모두 구한 딕셔너리
     #해당 딕셔너리를 만드는 함수
     hash_table = get_hash_table(N, color, each_house_value)
+
     #위에서 구한 딕셔너리에서 가능한 경우에 대한 비용만 결과배열에 추가하여
     #결과배열중 최솟값을 구하는 함수
     result = get_result_from_hash_table(N, hash_table)
 
     return result
+
+def get_hash_table(N, color, each_house_value):
+    if color == 1:
+        for i in range(N):
+            for j in range(N):
+                value = 26 + each_house_value[1][i] + each_house_value[2][j]
+                hash_table[1][i+1][j+1] = value
+    return hash_table
 
 
 def get_result_from_hash_table(N, hash_table):
@@ -54,16 +65,6 @@ def get_result_from_hash_table(N, hash_table):
                 continue
     result = min(result_array)
     return result
-
-
-def get_hash_table(N, color, each_house_value):
-    if color == 1:
-        for i in range(N):
-            for j in range(N):
-                value = 26 + each_house_value[1][i] + each_house_value[2][j]
-                hash_table[1][i+1][j+1] = value
-    return hash_table
-
 
 get_minimum_value(each_house_value, 1, 3)
 print(get_minimum_value(each_house_value, 1, 3))
