@@ -34,7 +34,11 @@ def get_minimum_value(each_house_value, color, N):
     #첫번째집 색깔을 선택한 이후에 나올 수 있는 비용의 경우의 수를 모두 구한 딕셔너리
     #해당 딕셔너리를 만드는 함수
     #
-    hash_table = get_hash_table(N, color, each_house_value)
+    if color == 1:
+        for i in range(N):
+            for j in range(N):
+                value = 26 + each_house_value[1][i] + each_house_value[2][j]
+                hash_table[1][i+1][j+1] = value
 
     for i in range(N):
         for j in range(N):
@@ -45,20 +49,11 @@ def get_minimum_value(each_house_value, color, N):
                 else :
                     continue
     print(hash_table)
-    result = min(hash_table.values[1]())
+   
 
     return result
 
 
-
-
-def get_hash_table(N, color, each_house_value):
-    if color == 1:
-        for i in range(N):
-            for j in range(N):
-                value = 26 + each_house_value[1][i] + each_house_value[2][j]
-                hash_table[1][i+1][j+1] = value
-    return hash_table
 
 
 get_minimum_value(each_house_value, 1, 3)
