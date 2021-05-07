@@ -55,7 +55,27 @@ def get_hash_table(N, color, each_house_value):
                         hash_table[color][i+1][j+1] = value
             else:
                 break
-    print(hash_table)
+
+    if color == 2:
+        for k in range(N):
+            if k + 1 < N:
+                for i in range(N):
+                    for j in range(N):
+                        value = 26 + each_house_value[k][i] + each_house_value[k+1][j]
+                        hash_table[color][i+1][j+1] = value
+            else:
+                break
+
+    if color == 3:
+        for k in range(N):
+            if k + 1 < N:
+                for i in range(N):
+                    for j in range(N):
+                        value = 26 + each_house_value[k][i] + each_house_value[k+1][j]
+                        hash_table[color][i+1][j+1] = value
+            else:
+                break
+    #print(hash_table)
     return hash_table
 
 
