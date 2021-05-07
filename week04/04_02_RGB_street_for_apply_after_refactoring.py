@@ -47,10 +47,15 @@ def get_minimum_value(each_house_value, color, N):
 
 def get_hash_table(N, color, each_house_value):
     if color == 1:
-        for i in range(N):
-            for j in range(N):
-                value = 26 + each_house_value[1][i] + each_house_value[2][j]
-                hash_table[1][i+1][j+1] = value
+        for k in range(N):
+            if k + 1 < N:
+                for i in range(N):
+                    for j in range(N):
+                        value = 26 + each_house_value[k][i] + each_house_value[k+1][j]
+                        hash_table[color][i+1][j+1] = value
+            else:
+                break
+    print(hash_table)
     return hash_table
 
 
