@@ -49,7 +49,7 @@ def get_minimum_value(each_house_value, color, N):
                 else :
                     continue
     print(hash_table)
-   
+
 
     return result
 
