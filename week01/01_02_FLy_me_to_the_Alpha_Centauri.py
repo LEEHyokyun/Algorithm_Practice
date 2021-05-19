@@ -6,4 +6,13 @@
 
 # 반복문을 통해 가능한 이동거리들을 배열에 나타내고
 # 합을 만족하는 애들의 인덱스가 작은 쪽을 출력
+import sys
+
+T = int(sys.stdin.readline())
+
+array_test_case = []
+for i in range(T):
+    array_test_case.append(list(map(int, sys.stdin.readline().split())))
+
+
 
