@@ -28,25 +28,21 @@ def get_minimum_value(T, array_test_case):
         length = array_test_case[i][1] - array_test_case[i][0]
         array_possible_steps.clear()
         array_steps.clear()
-
         for j in range(length):
-
-            if j == 0:
-                array_steps.append(1)
-                array_possible_steps.append(1)
-                continue
+            if sum(array_steps) < length:
+                break
             else:
-                before_final_step = array_possible_steps.pop()
-
-                array_steps.append(before_final_step + 1)
-
-                array_possible_steps.append(array_steps[j])
-                
-
-
-
+                if j == 0:
+                    array_steps.append(1)
+                    array_possible_steps.append(1)
+                    continue
+                else:
+                    before_final_step = array_possible_steps.pop()
+                    array_steps.append(before_final_step + 1)
+                    array_possible_steps.append(array_steps[j])
         print(result)
-        i = i + 1
+
+    i = i + 1
 
 
 
