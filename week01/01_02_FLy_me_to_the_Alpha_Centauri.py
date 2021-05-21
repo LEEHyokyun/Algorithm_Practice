@@ -4,9 +4,7 @@
 # 최종 지점 도착 직전 마지막 이동거리는 반드시 1
 # 작동장치횟수의 최소값
 
-# 최소횟수는 최대한 큰 거리를 가야한다.
 
-# 1씩가도 작동횟수의 최대는 두 지점사이의 거리
 
 import sys
 
@@ -20,31 +18,23 @@ def get_minimum_value(T, array_test_case):
 
     result = []
 
-    array_steps = []
-    array_possible_steps = []
-
-    i = 0
-    while i < T:
+    for i in range(T):
         length = array_test_case[i][1] - array_test_case[i][0]
-        array_possible_steps.clear()
-        array_steps.clear()
+
+        max_length_for_each_operation = []
+
         for j in range(length):
-            if sum(array_steps) < length:
-                break
-            else:
-                if j == 0:
-                    array_steps.append(1)
-                    array_possible_steps.append(1)
+
+            if j == 0:
+                max_length_for_each_operation.append(0)
+            elif j == 1:
+                max_length_for_each_operation.append(1)
+            else :
+                max_length_for_each_operation.append(max(max_length_for_each_operation) + j//2)
+                if max(max_length_for_each_operation) < length:
                     continue
                 else:
-                    before_final_step = array_possible_steps.pop()
-                    array_steps.append(before_final_step + 1)
-                    array_possible_steps.append(array_steps[j])
-        print(result)
-
-    i = i + 1
-
-
-
+                    print(j)
+                    break
 
 get_minimum_value(T, array_test_case)
